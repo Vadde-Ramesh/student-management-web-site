@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>
+			Student-portal
+		</title>
+	</head>
+	<link th:href="@{/CSS/home.css}" rel="stylesheet" type="text/css">
+	<link th:href="@{/CSS/container.css}" rel="stylesheet" type="text/css">
+	
+	<body style="background: radial-gradient(circle, violet,indigo, aqua,green,yellow, orange,red 90%)">
+		<nav class="nav">
+			<div class="nav-items">
+			   <a th:href="@{/}"><img th:src="@{/images/home-icon-vector.jpg}" width="20px" height="20px"></a>
+			</div>
+			<div class="nav-items">
+			    <h1> Courses</h1>
+			</div>
+			<div class="nav-items">
+			    <h1> About</h1>
+			</div>
+			<div class="nav-items">
+				 <h1> contact</h1>
+			</div>
+			<div class="nav-items">
+					<a th:href="@{/}">Log-out</a>
+			</div>
+			
+		</nav>
+		<br><br><br>
+		<div class="table">
+			<table>
+						<thead>
+							<tr>
+								<td>Student id</td>
+								<td>Student Name</td>
+								<td>Student email</td>
+								<td>Course id</td>
+								<td>Course Name</td>
+							</tr>
+						</thead>
+						<tbody>
+						    <tr th:each="course:${studentCourse}">
+							    <td th:text="${course.studentId}" style="width: 100px;"></td>
+								<td th:text="${course.studentName}" style="width: 150px;"></td>
+								<td th:text="${course.studentEmail}" style=" width: 200px;"></td>
+								<td th:text="${course.courseId}" style=" width: 100pxpx;"></td>
+								<td th:text="${course.courseName}" style=" width: 200pxpx;"></td>
+							</tr>
+						</tbody>
+					</table>
+			   </div>
+		<br><br><br>
+		<div class="table">
+			<table>
+				<thead>
+					<tr>
+						<td>Course id</td>
+						<td>Course Name</td>
+						<td>Course Price</td>
+						<td>Action</td>
+					</tr>
+				</thead>
+				<tbody>
+					<tr th:each="course:${courses}">
+						<td th:text="${course.id}" style="width: 50px;"></td>
+						<td th:text="${course.course}" style="width: 200px;"></td>
+						<td th:text="${course.price}" style=" width: 100pxpx;"></td>
+						<td><a  th:href="@{/buy-course/{courseid}/{studentid}(studentid=${student.id},courseid=${course.id})}" style="width: 40px;">Join</a></td>
+					</tr>
+				</tbody>
+			</table>
+		</div>
+		<br><br><br>
+	</body>
+	
+	<footer class="foot">
+		<div>
+			<p>@ All Rights Reserved </p>
+		</div>
+	</footer>
+</html>

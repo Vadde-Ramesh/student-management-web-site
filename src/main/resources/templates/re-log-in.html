@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>
+			Student-Management-Home
+		</title>
+	</head>
+	<link th:href="@{/CSS/home.css}" rel="stylesheet" type="text/css">
+	
+	<body style="background: radial-gradient(circle, violet,indigo, aqua,green,yellow, orange,red 90%)">
+		<nav class="nav">
+			<div class="nav-items">
+			   <a th:href="@{/}"><img th:src="@{/images/home-icon-vector.jpg}" width="20px" height="20px"></a>
+			</div>
+			<div class="nav-items">
+			    <h1> Courses</h1>
+			</div>
+			<div class="nav-items">
+			    <h1> About</h1>
+			</div>
+			<div class="nav-items">
+				 <h1> contact</h1>
+			</div>
+			<div class="nav-items">
+					<a th:href="@{/log-in}">Log-in</a>
+			</div>
+			
+		</nav>
+		<br><br><br>
+		
+		<div class="body" style="background-color: white; color: rgb(0, 0, 0);  column-width: 10cm;">
+			<p style="border: 1px solid; box-shadow: 1px 1px 4px 2px ;border-radius: 5px; background-color: green; ">log-in failed incorrect user email or password </p>
+		</div><br><br><br>
+		<div class="body">
+			<form class="form" th:action="@{/admin-login}" th:object="${admin}" th:method="get">
+				<h3>log-in</h3><hr>
+				<label>Email :</label><br>
+				<input type="email" name="email" placeholder="enter email" th:field="*{email}" id="input"><br>
+				<label>Password :</label><br>
+				<input type="password" name="password" placeholder="enter password" th:field="*{password}" id="input"><br><br>
+			    <button type="submit" class="btn">Log-in</button>
+			</form>
+			
+		</div>
+		
+		<br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
+	</body>
+	
+	<footer class="foot">
+		<div>
+			<p>@ All Rights Reserved </p>
+		</div>
+	</footer>
+</html>

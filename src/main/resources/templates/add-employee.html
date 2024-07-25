@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>
+			Student-Management-Home
+		</title>
+	</head>
+	<link th:href="@{/CSS/home.css}" rel="stylesheet" type="text/css">
+	<link th:href="@{/CSS/container.css}" rel="stylesheet" type="text/css">
+		
+	<body style="background: radial-gradient(circle, violet,indigo, aqua,green,yellow, orange,red 90%)">
+		<nav class="nav">
+			<div class="nav-items">
+			   <a th:href="@{/}"><img th:src="@{/images/home-icon-vector.jpg}" width="20px" height="20px"></a>
+			</div>
+			<div class="nav-items">
+			    <h1> Courses</h1>
+			</div>
+			<div class="nav-items">
+			    <h1> About</h1>
+			</div>
+			<div class="nav-items">
+				 <h1> contact</h1>
+			</div>
+			
+			<div class="nav-items">
+					<a th:href="@{/add-admin}">Add-admin</a>
+			</div>
+			<div class="nav-items">
+					<a th:href="@{/add-employee}">Add-Employee</a>
+			</div>
+		</nav>
+		<br><br><br><br>
+		
+		<br><br><br><br>
+		<div class="body">
+			<div class="form">
+				<form th:action="@{/save-employee}" th:object="${employee}"  th:method="post">
+					<h4>add-employee</h4><hr>
+					<label> first Name:</label><br>
+					<input type="text" name="firstName" th:field="*{firstName}" placeholder="enter first name" id="input"><br>
+					<label> last Name:</label><br>
+					<input type="text" name="lastName" th:field="*{lastName}" placeholder="enter last name" id="input"><br>
+					<label> email:</label><br>
+					<input type="email" name="email" th:field="*{email}" placeholder="enter email" id="input"><br>
+					<label> password:</label><br>
+					<input type="password" name="password" th:field="*{password}" placeholder="enter password" id="input">
+					
+					<br><br>
+                    <button type="submit" class="btn">add-employee</button>	
+				</form>
+			</div>
+		</div>
+		
+		
+		
+		<br><br><br><br><br><br><br><br><br>
+	</body>
+	
+	<footer class="foot">
+		<div>
+			<p>@ All Rights Reserved </p>
+		</div>
+	</footer>
+</html>

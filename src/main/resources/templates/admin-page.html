@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>
+			Student-Management-Home
+		</title>
+	</head>
+	<link th:href="@{/CSS/home.css}" rel="stylesheet" type="text/css">
+	<link th:href="@{/CSS/container.css}" rel="stylesheet" type="text/css">
+		
+	<body style="background: radial-gradient(circle, violet,indigo, aqua,green,yellow, orange,red 90%)">
+		<nav class="nav">
+			<div class="nav-items">
+			   <a th:href="@{/}"><img th:src="@{/images/home-icon-vector.jpg}" width="20px" height="20px"></a>
+			</div>
+			<div class="nav-items">
+			    <h1> Courses</h1>
+			</div>
+			<div class="nav-items">
+			    <h1> About</h1>
+			</div>
+			<div class="nav-items">
+				 <h1> contact</h1>
+			</div>
+			
+			<div class="nav-items">
+					<a th:href="@{/add-admin}">Add-admin</a>
+			</div>
+			<div class="nav-items">
+					<a th:href="@{/add-employee}">Add-Employee</a>
+			</div>
+		</nav>
+		<br><br><br><br>
+		<div class="table">
+				<table>
+					<thead>
+						<tr>
+							<td>Course id</td>
+							<td>Course Name</td>
+							<td>Course Price</td>
+							<td>Course Edit</td>
+							<td>Course Delete</td>
+						</tr>
+					</thead>
+				<tbody>
+					<tr th:each="courses:${course}">
+						<td th:text="${courses.id}" style="width: 100px;"></td>
+						<td th:text="${courses.course}" style="width: 150px;"></td>
+						<td th:text="${courses.price}" style=" width: 150px;"></td>
+						<td> <a th:href="@{/course/{id}/{id1}(id=${courses.id}, id1=${admin.id})}" class="btn" style="width: 150px;">edit</a></td>
+						<td> <a th:href="@{/course-delete/{id}/{id1}(id=${courses.id}, id1=${admin.id})}" class="btn" style="width: 150px;">delete</a></td>
+						<td th:text="${admin.id}" style="visibility: hidden;"></td>
+					</tr>
+				</tbody>
+				</table>
+				</div>
+		<br><br>
+		<div class="table">
+						<table>
+							<thead>
+								<tr>
+									<td>Employee id</td>
+									<td>Employee First Name</td>
+									<td>Employee Last Name</td>
+									<td>Employee email</td>
+									<td>Delete</td>
+								</tr>
+							</thead>
+						<tbody>
+							<tr th:each="emp:${employee}">
+								<td th:text="${emp.id}" style="width: 100px;"></td>
+								<td th:text="${emp.firstName}" style="width: 250px;"></td>
+								<td th:text="${emp.lastName}" style=" width: 250px;"></td>
+								<td th:text="${emp.email}" style=" width: 200px;"> </td>
+								<td style="width: 150px;"> <a th:href="@{/emp-delete/{id}/{id1}(id=${emp.id}, id1=${admin.id})}" class="btn" >delete</a></td>
+								<td th:text="${admin.id}" style="visibility: hidden;"></td>
+							</tr>
+						</tbody>
+						</table>
+						</div>
+		<br><br>
+		
+		<div class="table">
+				<table>
+					<thead>
+						<tr>
+							<td>Student id</td>
+							<td>Student Name</td>
+							<td>Student email</td>
+							<td>Course id</td>
+							<td>Course Name</td>
+						</tr>
+					</thead>
+					<tbody>
+						<tr th:each="course:${courses}">
+							<td th:text="${course.studentId}" style="width: 100px;"></td>
+							<td th:text="${course.studentName}" style="width: 150px;"></td>
+							<td th:text="${course.studentEmail}" style=" width: 200px;"></td>
+							<td th:text="${course.courseId}" style=" width: 100pxpx;"></td>
+							<td th:text="${course.courseName}" style=" width: 200pxpx;"></td>
+						</tr>
+					</tbody>
+				</table>
+		</div>
+		
+		
+		<br><br><br><br>
+	</body>
+	
+	<footer class="foot">
+		<div>
+			<p>@ All Rights Reserved </p>
+		</div>
+	</footer>
+</html>
